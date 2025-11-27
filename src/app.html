@@ -60,6 +60,9 @@
 					document.documentElement.style.setProperty('--color-gray-950', '#000000');
 					document.documentElement.classList.add('dark');
 					metaThemeColorTag.setAttribute('content', '#000000');
+				} else if (localStorage.theme === 'infershift') {
+					document.documentElement.classList.add('dark');
+					metaThemeColorTag.setAttribute('content', '#000000');
 				} else if (localStorage.theme === 'light') {
 					document.documentElement.classList.add('light');
 					metaThemeColorTag.setAttribute('content', '#ffffff');
@@ -103,7 +106,7 @@
 			})();
 		</script>
 
-		<title>Open WebUI</title>
+		<title>InferShift AI</title>
 
 		%sveltekit.head%
 	</head>

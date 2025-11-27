@@ -1,0 +1,463 @@
+/**
+ * InferShift Theme for Open WebUI - Minimalist Version
+ *
+ * Philosophy: Neutral tones everywhere, gradients on KEY TEXT only
+ * Matches https://infershift.com exactly - no colored backgrounds, minimal color usage
+ */
+
+/* ===================================
+   FONTS
+   =================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap');
+
+/* ===================================
+   INFERSHIFT MINIMAL COLORS
+   =================================== */
+
+:root {
+  /* Gradient for KEY TEXT ONLY */
+  --infershift-gradient: linear-gradient(135deg, #0066FF 0%, #10B981 100%);
+
+  /* Neutral tones - used everywhere */
+  --infershift-bg: #000000;
+  --infershift-foreground: #FFFFFF;
+  --infershift-muted-foreground: #9CA3AF;
+  --infershift-border: #2A2A2A;
+}
+
+/* ===================================
+   DARK MODE - PURE NEUTRAL
+   =================================== */
+
+.dark {
+  /* All grays are neutral - no colors */
+  --color-gray-950: #000000;
+  --color-gray-900: #0A0A0A;
+  --color-gray-850: #141414;
+  --color-gray-800: #1A1A1A;
+  --color-gray-700: #2A2A2A;
+  --color-gray-600: #404040;
+  --color-gray-500: #6B7280;
+  --color-gray-400: #9CA3AF;
+  --color-gray-300: #D1D5DB;
+  --color-gray-200: #E5E7EB;
+  --color-gray-100: #F3F4F6;
+  --color-gray-50: #F9FAFB;
+}
+
+/* ===================================
+   BODY - PURE BLACK
+   =================================== */
+
+.dark body {
+  background: #000000 !important;
+  color: #E5E5E5;
+}
+
+/* ===================================
+   TYPOGRAPHY - GRADIENT ON KEY TEXT ONLY
+   =================================== */
+
+h1, h2, h3, h4, h5, h6,
+.font-primary {
+  font-family: 'Sora', 'Archivo', -apple-system, sans-serif !important;
+  color: #FFFFFF !important;
+}
+
+/* Apply gradient to SPECIFIC key text only */
+.dark #sidebar-webui-name {
+  background: var(--infershift-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+/* Apply gradient to selected model name in center of screen */
+.dark .line-clamp-1 {
+  background: var(--infershift-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+/* ===================================
+   SIDEBAR - PURE BLACK, NO HIGHLIGHTS
+   =================================== */
+
+.dark nav,
+.dark [data-sidebar],
+.dark aside,
+.dark .bg-gray-50 {
+  background: #000000 !important;
+  border-right: 1px solid #1A1A1A;
+}
+
+/* Sidebar items - NO colors, NO highlights */
+.dark #sidebar-chat-item {
+  color: #9CA3AF;
+  background: transparent !important;
+}
+
+.dark #sidebar-chat-item:hover {
+  color: #E5E5E5;
+  background: transparent !important;
+}
+
+.dark #sidebar-chat-item.active {
+  color: #FFFFFF;
+  background: transparent !important;
+  /* NO highlights, NO borders */
+}
+
+/* ===================================
+   BUTTONS - PLAIN, NO COLORS
+   =================================== */
+
+/* All buttons are neutral by default */
+.dark button:not(.btn-outline):not(.btn-ghost):not([class*="text-"]):not([class*="hover:text-"]),
+.dark .btn-primary,
+.dark input[type="submit"] {
+  background: transparent !important;
+  color: #E5E5E5 !important;
+  border: 1px solid #2A2A2A !important;
+  transition: all 150ms ease;
+}
+
+.dark button:not(.btn-outline):not(.btn-ghost):not([class*="text-"]):not([class*="hover:text-"]):hover,
+.dark .btn-primary:hover,
+.dark input[type="submit"]:hover {
+  background: #1A1A1A !important;
+  border-color: #404040 !important;
+  color: #FFFFFF !important;
+  transition: all 150ms ease;
+}
+
+/* Icon buttons - completely plain */
+.dark button[class*="text-"],
+.dark button.hover\:text-white {
+  background: transparent !important;
+  color: #9CA3AF !important;
+}
+
+.dark button[class*="text-"]:hover,
+.dark button.hover\:text-white:hover {
+  background: transparent !important;
+  color: #FFFFFF !important;
+}
+
+/* ===================================
+   LINKS - MINIMAL COLOR
+   =================================== */
+
+.dark a {
+  color: #E5E5E5;
+  transition: all 150ms ease;
+}
+
+.dark a:hover {
+  color: #FFFFFF;
+  transition: all 150ms ease;
+}
+
+/* ===================================
+   INPUTS & FORMS - PLAIN, NO COLORS
+   =================================== */
+
+.dark input:not([type="checkbox"]):not([type="radio"]),
+.dark textarea,
+.dark select {
+  background: transparent !important;
+  border: 1px solid #2A2A2A !important;
+  color: #E5E5E5 !important;
+  transition: all 150ms ease;
+}
+
+.dark input:focus:not([type="checkbox"]):not([type="radio"]),
+.dark textarea:focus,
+.dark select:focus {
+  border-color: #404040 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  transition: all 150ms ease;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #6B7280 !important;
+}
+
+/* ===================================
+   CARDS & CONTAINERS - PLAIN
+   =================================== */
+
+.dark .bg-gray-800,
+.dark .bg-gray-850,
+.dark .bg-gray-900 {
+  background: transparent !important;
+  border: 1px solid #1A1A1A;
+}
+
+.dark .hover\:bg-gray-800:hover,
+.dark .hover\:bg-gray-850:hover,
+.dark .hover\:bg-gray-900:hover {
+  background: transparent !important;
+  border-color: #2A2A2A;
+  transition: all 150ms ease;
+}
+
+/* ===================================
+   MODALS & OVERLAYS - PLAIN
+   =================================== */
+
+.dark [role="dialog"],
+.dark .modal {
+  background: #000000 !important;
+  border: 1px solid #2A2A2A;
+}
+
+/* ===================================
+   CHECKBOXES - MINIMAL
+   =================================== */
+
+.dark input[type='checkbox']:checked {
+  background: #404040 !important;
+  border-color: #404040 !important;
+}
+
+/* ===================================
+   FOCUS STATES - SUBTLE
+   =================================== */
+
+.dark *:focus-visible {
+  outline-color: #404040;
+  outline-width: 1px;
+  outline-style: solid;
+  outline-offset: 2px;
+}
+
+/* ===================================
+   SCROLLBARS - NEUTRAL
+   =================================== */
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background-color: #000000;
+}
+
+/* ===================================
+   CODE BLOCKS - PLAIN
+   =================================== */
+
+.dark pre,
+.dark code {
+  background: #0A0A0A !important;
+  border: 1px solid #1A1A1A;
+}
+
+/* ===================================
+   TABLES - MINIMAL
+   =================================== */
+
+.dark table {
+  border-color: #1A1A1A !important;
+}
+
+.dark th {
+  background: transparent !important;
+  color: #FFFFFF !important;
+  border-bottom: 1px solid #2A2A2A;
+}
+
+.dark tr:nth-child(even) {
+  background: transparent !important;
+}
+
+.dark tr:hover {
+  background: transparent !important;
+}
+
+/* ===================================
+   CHAT MESSAGES - MINIMAL
+   =================================== */
+
+.dark .message-user {
+  background: transparent !important;
+  border-left: 1px solid #2A2A2A;
+}
+
+.dark .message-assistant {
+  background: transparent !important;
+}
+
+/* ===================================
+   LOGO & BRANDING
+   =================================== */
+
+.dark img[alt="logo"],
+.dark img[src*="splash"],
+.dark img[src*="logo"],
+.dark img[src*="favicon"] {
+  filter: none !important;
+}
+
+/* ===================================
+   REMOVE ALL HIGHLIGHTS & COLORS
+   =================================== */
+
+/* Remove all active states */
+.dark .active {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Remove all colored backgrounds */
+.dark .bg-blue-500,
+.dark .bg-blue-600,
+.dark .bg-primary,
+.dark [class*="bg-blue"],
+.dark [class*="bg-green"] {
+  background: transparent !important;
+}
+
+/* Remove all colored text except gradients */
+.dark .text-blue-500,
+.dark .text-blue-600,
+.dark .text-primary {
+  color: #E5E5E5 !important;
+}
+
+/* Remove hover backgrounds */
+.dark .hover\:bg-gray-100:hover,
+.dark .hover\:bg-gray-50:hover,
+.dark .hover\:bg-gray-850:hover,
+.dark .hover\:bg-gray-900:hover {
+  background: transparent !important;
+}
+
+/* ===================================
+   SIDEBAR SPECIFIC - COMPLETE REMOVAL
+   =================================== */
+
+/* Remove ALL sidebar highlights */
+.dark [data-sidebar] .active,
+.dark [data-sidebar] button.active,
+.dark [data-sidebar] a.active,
+.dark nav .active {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Remove hover states */
+.dark [data-sidebar] button:hover,
+.dark [data-sidebar] a:hover,
+.dark nav button:hover,
+.dark nav a:hover {
+  background: transparent !important;
+}
+
+/* Remove all border indicators */
+.dark .border-l-2,
+.dark .border-l,
+.dark [class*="border-l"] {
+  border-left: none !important;
+}
+
+/* Remove rounded backgrounds on hover */
+.dark .rounded-2xl:hover,
+.dark .rounded-xl:hover {
+  background: transparent !important;
+}
+
+/* ===================================
+   NEW CHAT & SEARCH BUTTONS
+   =================================== */
+
+.dark #sidebar-new-chat-button,
+.dark #sidebar-search-button,
+.dark a[href="/"],
+.dark button[id*="sidebar"] {
+  background: transparent !important;
+  color: #9CA3AF !important;
+}
+
+.dark #sidebar-new-chat-button:hover,
+.dark #sidebar-search-button:hover,
+.dark a[href="/"]:hover,
+.dark button[id*="sidebar"]:hover {
+  background: transparent !important;
+  color: #FFFFFF !important;
+}
+
+/* ===================================
+   TRANSITIONS
+   =================================== */
+
+* {
+  transition-duration: 150ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===================================
+   TOOLTIPS - MINIMAL
+   =================================== */
+
+.dark [data-tippy-root] .tippy-box {
+  background: #1A1A1A !important;
+  border: 1px solid #2A2A2A;
+  color: #E5E5E5 !important;
+}
+
+/* ===================================
+   REMOVE ALL PILL/BADGE COLORS
+   =================================== */
+
+.dark .badge,
+.dark .pill {
+  background: transparent;
+  color: #9CA3AF;
+  border: 1px solid #2A2A2A;
+}
+
+/* ===================================
+   TEXT COLORS - ALL NEUTRAL
+   =================================== */
+
+.dark .text-gray-400,
+.dark .text-gray-500 {
+  color: #9CA3AF !important;
+}
+
+.dark .text-gray-200,
+.dark .text-gray-100,
+.dark .text-gray-50 {
+  color: #E5E5E5 !important;
+}
+
+/* ===================================
+   FINAL OVERRIDE - REMOVE ALL COLORED ELEMENTS
+   =================================== */
+
+.dark [style*="background"] {
+  background: transparent !important;
+}

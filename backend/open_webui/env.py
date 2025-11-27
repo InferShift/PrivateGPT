@@ -112,9 +112,7 @@ for source in log_sources:
 
 log.setLevel(SRC_LOG_LEVELS["CONFIG"])
 
-WEBUI_NAME = os.environ.get("WEBUI_NAME", "Open WebUI")
-if WEBUI_NAME != "Open WebUI":
-    WEBUI_NAME += " (Open WebUI)"
+WEBUI_NAME = os.environ.get("WEBUI_NAME", "InferShift PrivateGPT")
 
 WEBUI_FAVICON_URL = "https://openwebui.com/favicon.png"
 
@@ -436,7 +434,7 @@ ENABLE_PASSWORD_VALIDATION = (
 )
 PASSWORD_VALIDATION_REGEX_PATTERN = os.environ.get(
     "PASSWORD_VALIDATION_REGEX_PATTERN",
-    "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$",
+    r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$",
 )
 
 PASSWORD_VALIDATION_REGEX_PATTERN = re.compile(PASSWORD_VALIDATION_REGEX_PATTERN)
